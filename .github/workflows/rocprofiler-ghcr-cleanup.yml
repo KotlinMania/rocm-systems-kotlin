@@ -11,6 +11,7 @@ on:
 
 jobs:
   cleanup-rocprofiler-images:
+    if: github.repository == 'ROCm/rocm-systems'
     runs-on: ubuntu-latest
     permissions:
       contents: read
