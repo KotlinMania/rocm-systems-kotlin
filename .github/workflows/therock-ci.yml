@@ -80,7 +80,7 @@ jobs:
       contents: read
       id-token: write
     needs: setup
-    if: ${{ needs.setup.outputs.projects != '[]' }}
+    if: ${{ needs.setup.outputs.projects != '[]' && github.repository == 'ROCm/rocm-systems' }}
     strategy:
       fail-fast: false
       matrix:
@@ -97,7 +97,7 @@ jobs:
       contents: read
       id-token: write
     needs: setup
-    if: ${{ needs.setup.outputs.projects != '[]' }}
+    if: ${{ needs.setup.outputs.projects != '[]' && github.repository == 'ROCm/rocm-systems' }}
     strategy:
       fail-fast: false
       matrix:
@@ -122,7 +122,7 @@ jobs:
           echo '${{ toJson(needs) }}'
           FAILED_JOBS="$(echo '${{ toJson(needs) }}' \
             | jq --raw-output \
-            'map_values(select(.result!="success" and .result!="skipped")) | keys | join(",")' \
+            'map_values(select(.result!="success" and .result!="skipped" and .result!="cancelled")) | keys | join(",")' \
           )"
           if [[ "${FAILED_JOBS}" != "" ]]; then
             echo "The following jobs failed: ${FAILED_JOBS}"
