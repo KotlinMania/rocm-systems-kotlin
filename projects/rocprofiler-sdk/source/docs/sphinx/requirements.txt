@@ -94,7 +94,7 @@ packaging==24.2
     #   matplotlib
     #   pydata-sphinx-theme
     #   sphinx
-pillow==11.1.0
+pillow==12.2.0
     # via matplotlib
 pycparser==2.22
     # via cffi
