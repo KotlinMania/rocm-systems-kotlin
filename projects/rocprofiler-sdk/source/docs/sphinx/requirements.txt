@@ -185,7 +185,7 @@ typing-extensions==4.15.0
     #   pydata-sphinx-theme
     #   pygithub
     #   pyjwt
-urllib3==2.7.0
+urllib3==2.8.0
     # via
     #   pygithub
     #   requests
